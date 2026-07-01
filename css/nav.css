@@ -1,0 +1,157 @@
+.barra{
+  width: 100%;
+  height: 80px;
+  position: fixed;
+}
+
+.nav {
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.03));
+  backdrop-filter: blur(15px);          
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  margin: 0;
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+  letter-spacing: 1.4px;
+  font-weight: bold;
+}
+
+.logo{
+  width: 90px;
+  height: 80px;
+  margin-left: 10px;
+  margin-right: 50%;
+}
+
+.nav-menu {
+  display: flex;
+  margin-right: 40px;
+  list-style: none;
+}
+
+.nav-menu-item {
+  font-size: 18px;
+  margin: 0 10px;
+  line-height: 80px;
+  text-transform: uppercase;
+}
+
+.nav-menu-link {
+  padding: 8px 12px;
+}
+
+.nav-menu-link:hover,
+.nav-menu-link_active {
+  background-color: #3d3f46;
+  transition: 0.5s;
+  border-radius: 13px;
+}
+
+.nav-toggle {
+  color: white;
+  background: none;
+  border: none;
+  font-size: 30px;
+  padding: 0 20px 20px;
+  line-height: 60px;
+  cursor: pointer;
+
+  display: none;
+}
+
+
+  @media(max-width: 720px){
+   
+
+
+ .barra {
+        height: 60px;
+    }
+
+button:hover{
+
+      background-color: rgba(200,200,200,0.12);
+  
+  }
+
+    .logo {
+        width: 75px;
+        height: 75px;
+        margin-right: 70%;
+        margin-top: -1.5%;
+    }
+
+    .nav-menu {
+        flex-direction: column;
+        align-items: center;
+        margin: 0;
+        background-image: linear-gradient(
+
+    0deg,
+    rgba(0,0,0,0.5),
+    rgba(0,0,0,0.5)
+
+    )
+    ,url("/img/mesa-nav.jpg");
+
+    background-position: center center; background-size: cover; /* Escala la imagen para cubrir todo el contenedor */
+    background-position: center; /* Centra la imagen dentro del contenedor */
+        backdrop-filter: blur(20px);
+        width: 100%;
+        position: fixed;
+        top: 60px;
+        padding: 20px 0;
+        height: 100vh;
+        overflow-y: auto;
+        left: 100%;
+        transition: left 0.3s;
+    }
+
+
+    .nav-menu-item {
+      line-height: 70px;
+    }
+  
+    .nav-menu-link:hover,
+    .nav-menu-link_active {
+      background: none;
+      color: #21bc6f;
+      
+    }
+  
+    .nav-toggle {
+      display: block;
+      
+    }
+  
+    .nav-menu_visible {
+      left: 0;
+    
+    }
+  
+    .nav-toggle:focus:not(:focus-visible) {
+      outline: none;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

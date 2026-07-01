@@ -1,0 +1,186 @@
+/* =========================================================
+   El Billarista — estilos globales (mobile-first, dark only)
+   Lenguaje visual: paño verde oscuro + negro, tipografía
+   display tipo stencil (Oswald) y tarjetas glassmorphism.
+   ========================================================= */
+
+:root {
+  /* Paleta paño / fondo */
+  --bg: #0a140f;
+  --bg-2: #0d1d15;
+  --felt: #0f3d2e;
+  --felt-deep: #08231a;
+
+  /* Acentos */
+  --accent: #21bc6f;       /* verde billar */
+  --accent-soft: #2bd07d;
+  --cream: #ece8d8;        /* crema/dorado claro (texto display) */
+  --gold: #c9b681;
+
+  /* Texto */
+  --text: #f3f4f1;
+  --text-soft: rgba(243, 244, 241, 0.72);
+  --text-dim: rgba(243, 244, 241, 0.5);
+
+  /* Glassmorphism */
+  --glass-bg: rgba(255, 255, 255, 0.06);
+  --glass-bg-strong: rgba(255, 255, 255, 0.09);
+  --glass-border: rgba(255, 255, 255, 0.16);
+  --glass-blur: 14px;
+  --glass-radius: 22px;
+
+  /* Layout */
+  --nav-h: 60px;
+  --maxw: 520px; /* mobile-first: contenedor angosto */
+
+  /* Tipografías */
+  --font-display: 'Oswald', 'Arial Narrow', sans-serif;
+  --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--font-body);
+  color: var(--text);
+  /* fondo base plano; el degradado verde de la unión se hace por sección */
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+#app {
+  min-height: 100vh;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ---------- Tipografía display ---------- */
+.display {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  line-height: 0.98;
+  color: var(--cream);
+  margin: 0;
+}
+
+h1.display { font-size: clamp(2.4rem, 13vw, 3.4rem); }
+/* aire entre el título de sección y su tarjeta (antes quedaba pegado) */
+h2.display { font-size: clamp(1.8rem, 9vw, 2.4rem); margin-bottom: 18px; }
+
+/* ---------- Layout helpers ---------- */
+.page {
+  width: 100%;
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: calc(var(--nav-h) + 8px) 18px 64px;
+}
+
+.section {
+  margin-top: 44px;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-display);
+  font-weight: 500;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+  color: var(--accent-soft);
+  margin: 0 0 10px;
+}
+
+.eyebrow::before {
+  content: '◇';
+  color: var(--gold);
+  font-size: 0.9rem;
+}
+
+p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text-soft);
+  margin: 0 0 1rem;
+}
+
+/* ---------- Tarjeta glassmorphism ---------- */
+.glass {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--glass-radius);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  box-shadow:
+    0 8px 30px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+/* Motivo de rombos (referencia gráfica 2) */
+.diamonds {
+  display: flex;
+  gap: 6px;
+  color: var(--glass-border);
+  font-size: 0.7rem;
+  letter-spacing: 4px;
+  margin: 10px 0;
+}
+
+/* ---------- Botones ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-size: 0.95rem;
+  padding: 13px 24px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: transform 0.15s ease, background 0.25s ease, box-shadow 0.25s ease;
+}
+
+.btn:active { transform: translateY(1px) scale(0.99); }
+
+.btn--primary {
+  background: var(--accent);
+  color: #04130c;
+  box-shadow: 0 8px 22px rgba(33, 188, 111, 0.3);
+}
+.btn--primary:hover { background: var(--accent-soft); }
+
+.btn--ghost {
+  background: var(--glass-bg);
+  border-color: var(--glass-border);
+  color: var(--text);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+}
+.btn--ghost:hover { background: var(--glass-bg-strong); }
+
+.btn--block { width: 100%; }
